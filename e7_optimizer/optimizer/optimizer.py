@@ -7,7 +7,6 @@ from optimizer.data_structures import (
 )
 from ortools.sat.python import cp_model
 import numpy as np
-import sys
 
 # may/may not need this
 # sys.setrecursionlimit(10000)
@@ -318,40 +317,3 @@ class Optimizer:
 
 if __name__ == "__main__":
     pass
-
-    # # CONFIG
-    # constaint_type = "HARD"
-    # GEAR_FP = "data/gear.json"
-
-    # items = parse_gear_file(GEAR_FP)
-    # items = sorted(items, key=lambda x: x.stats.AttackPercent)[::-1]
-    # item_df = get_gear_df(items)
-
-    # heroes = get_heroes()
-    # hero_df, hero_max_df, hero_min_df = get_heroes_df(heroes)
-
-    # # set type constraints
-    # set_constraints_df = pd.DataFrame(
-    #     columns=["set_type_constraint"], index=hero_df.index
-    # )
-
-    # set_constraints_df.iloc[0] = [[SetTypes.IMMUNITY, SetTypes.CRIT]]
-
-    # # stat priorities per hero
-    # stat_weightings_df = pd.DataFrame(0, columns=STAT_LIST, index=hero_df.index)
-
-    # stat_weightings_df.iloc[:][["EffectivenessPercent", "Speed"]] = 1
-
-    # opt = Optimizer(
-    #     item_df=item_df, hero_base_df=hero_df, hero_additional_df=hero_df
-    # )
-    # opt.add_constraints(
-    #     hero_min_df=hero_min_df,
-    #     hero_max_df=hero_max_df,
-    #     set_constraints_df=set_constraints_df,
-    # )
-    # opt.set_objective_optimisation(stat_weightings_df=stat_weightings_df)
-    # opt.define_solver(timer=100)
-    # response_dict = opt.run_solver()
-    # print(response_dict["status"])
-    #

@@ -1,12 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, fields
-from enum import Enum, IntEnum, auto, unique
+from enum import IntEnum, auto, unique
 from functools import reduce
-from typing import Any, Dict, List, Set, Union
-from collections import Counter
-import pandas as pd
-
+from typing import Any
 
 ##########################
 ### CONSTANT / CONFIGS ###
@@ -26,8 +23,6 @@ HERO_DATA_URL = (
 ARTIFACT_DATA_URL = "http://e7-optimizer-game-data.s3-accelerate.amazonaws.com/artifactdata.json?"
 
 HERO_DATA_PATH = "./data/hero_data.csv"
-
-# GEAR_PATH = "../data/gear.json"
 
 
 #############

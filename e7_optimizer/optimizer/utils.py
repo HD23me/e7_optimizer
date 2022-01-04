@@ -1,19 +1,17 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, fields
-from enum import Enum, IntEnum, auto, unique
-from functools import reduce
-from typing import Any, Dict, List, Set, Union
 from collections import Counter
+from functools import reduce
+from typing import Any, Dict
+
 import pandas as pd
 
 from optimizer.data_structures import (
-    StatStick,
-    StatStickMax,
     ItemTypes,
     SetTypes,
+    StatStick,
+    StatStickMax,
 )
-
 
 ###############
 ### CLASSES ###

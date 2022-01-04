@@ -1,16 +1,17 @@
-from typing import Dict, List
-import pandas as pd
 import os
+from typing import Dict, List
+
+import pandas as pd
 import requests
 
 from optimizer.data_structures import (
-    HERO_DATA_URL,
     HERO_DATA_PATH,
+    HERO_DATA_URL,
     ItemTypes,
     SetTypes,
     StatStick,
 )
-from optimizer.utils import Item, Hero
+from optimizer.utils import Hero, Item
 
 
 def get_raw_hero_data() -> pd.DataFrame:
