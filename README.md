@@ -6,11 +6,12 @@ This is a rough demo/WIP of a constraint programming based approach for optimisi
 This tool requires a gear file from the [**Fribbels Epic 7 Gear Optimizer**](https://github.com/fribbels/Fribbels-Epic-7-Optimizer), notably using the [**auto importer**](https://github.com/fribbels/Fribbels-Epic-7-Optimizer#setting-up-the-auto-importer). You can still play around with it using the provided `sample_gear.txt` file however.
 
 ### Quick Start Guide
-1. Install Python (only tested on version 3.9.7)
-2. (Optional) Create a virtual environment 
-3. Install the requirements with `pip install -r requirements.txt`
-4. Start the streamlit app using from the project root with `streamlit run ./e7_optimizer/app.py`
-5. Your browser should open up, or if not just click on the address shown in your terminal.
+1. Install Python (only tested on version 3.9.7).
+2. (Optional) Create a virtual environment.
+3. Clone the repo with `git clone https://github.com/HD23me/e7_optimizer.git`.
+4. Install the requirements with `pip install -r requirements.txt`.
+5. Start the streamlit app using from the project root with `streamlit run ./e7_optimizer/app.py`.
+6. Your browser should open up, or if not just click on the address shown in your terminal.
 
 ### Usage
 1. Load in your `gear.txt` file.
