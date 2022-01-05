@@ -373,6 +373,7 @@ def get_equipment_csv(equipment_df_dict):
 
 
 def run_optimizer(state, solver_time, worker_count):
+
     opt = Optimizer(
         item_df=state.item_df,
         hero_base_df=state.base_stats,

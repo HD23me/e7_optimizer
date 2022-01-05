@@ -12,10 +12,37 @@ from optimizer import data_handlers as dh
 from optimizer.data_structures import DISPLAY_STAT_LIST, SET_TYPES, STAT_LIST
 
 
+### Don't ask ###
+class DictX(dict):
+    """Dictionary wrapper with get/set/del methods for dict.key access"""
+
+    def __getattr__(self, key):
+        try:
+            return self[key]
+        except KeyError as k:
+            raise AttributeError(k)
+
+    def __setattr__(self, key, value):
+        self[key] = value
+
+    def __delattr__(self, key):
+        try:
+            del self[key]
+        except KeyError as k:
+            raise AttributeError(k)
+
+    def __repr__(self):
+        return "<DictX " + dict.__repr__(self) + ">"
+
+
 def main():
 
+    # create dictionary to store everything
+    if "state" not in st.session_state:
+        st.session_state["state"] = DictX({})
+
     # alias for session_state since it's too long
-    state = st.session_state
+    state = st.session_state["state"]
 
     # create flag to determine whether data should be re-initialised - False on first run
     if "data_initialised" not in state:
@@ -422,8 +449,13 @@ def main():
     with st.expander("Equipment Details"):
         for hero, equip_items in equipment_df_dict.items():
             st.subheader(f"{hero} Equipment")
+
+            cols = ["Slot", "Name", "Set"] + [
+                i for i in STAT_LIST if i != "SpeedPercent"
+            ]
+
             AgGrid(
-                equip_items[["Slot", "Name", "Set"] + DISPLAY_STAT_LIST],
+                equip_items[cols],
                 fit_columns_on_grid_load=True,
                 height=GRID_SIZE * (1 + equip_items.shape[0]),
                 theme=APP_THEME,
